@@ -5,12 +5,12 @@ class CollectionsController < ApplicationController
   def index
     @collections = Collection.all
 
-    render json: @collections,each_serializer: CollectionSerializer
+    render json: @collections
   end
 
   # GET /collections/1
   def show
-    render json: @collection,serializer: CollectionSerializer
+    render json: @collection
   end
 
   # POST /collections
