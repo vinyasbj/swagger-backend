@@ -16,9 +16,9 @@ class RequestsController < ApplicationController
   # POST /requests
   def create
     @request = Request.new(request_params)
-
+    @request.body = params[:request][:body]
     if @request.save
-      render json: @request, status: :created, location: @request
+      render json: @request, status: :created
     else
       render json: @request.errors, status: :unprocessable_entity
     end
@@ -46,6 +46,6 @@ class RequestsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def request_params
-      params.require(:request).permit(:title, :name, :body, :headers, :collection_id, :url,:method)
+      params.require(:request).permit(:body,:title, :name, :headers, :collection_id, :url,:method,:request_params)
     end
 end

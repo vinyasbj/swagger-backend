@@ -18,7 +18,7 @@ class CollectionsController < ApplicationController
     @collection = Collection.new(collection_params)
 
     if @collection.save
-      render json: @collection, status: :created, location: @collection
+      render json: @collection, status: :created
     else
       render json: @collection.errors, status: :unprocessable_entity
     end
