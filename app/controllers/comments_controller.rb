@@ -24,6 +24,12 @@ class CommentsController < ApplicationController
     end
   end
 
+  def request_comments
+    @comments = Comment.where(request_id: params[:request_id])
+
+    render json: @comments
+  end
+
   # PATCH/PUT /comments/1
   def update
     if @comment.update(comment_params)

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :comments
+  resources :comments, :defaults => { :format => 'json' }
   resources :requests, :defaults => { :format => 'json' }
   resources :collections, :defaults => { :format => 'json' }
+  get "request_comments",:to => "request_comments#comments"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
