@@ -10,6 +10,6 @@ class CollectionSerializer < ActiveModel::Serializer
   end
 
   def requests
-    object.requests, each_serializer: RequestSerializer
+    object.requests
   end
 end
