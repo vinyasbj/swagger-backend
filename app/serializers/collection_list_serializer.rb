@@ -10,7 +10,11 @@ class CollectionListSerializer < ActiveModel::Serializer
   end
 
   def last_updated
-    object.requests.last.created_at.in_time_zone('Chennai').strftime("%d-%m-%Y %I:%M %p")
+    begin
+      object.requests.last.created_at.in_time_zone('Chennai').strftime("%d-%m-%Y %I:%M %p")
+    rescue => exception
+      
+    end
     # (Time.current - object.requests.last.created_at).minutes
   end
 end
