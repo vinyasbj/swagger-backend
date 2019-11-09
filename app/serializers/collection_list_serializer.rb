@@ -1,0 +1,16 @@
+class CollectionListSerializer < ActiveModel::Serializer
+  attributes :id, :name, :description,:created_at,:updated_at,:last_updated
+
+  def created_at
+    object.created_at.in_time_zone('Chennai').strftime("%d-%m-%Y %I:%M %p")
+  end
+
+  def updated_at
+    object.updated_at.in_time_zone('Chennai').strftime("%d-%m-%Y %I:%M %p")
+  end
+
+  def last_updated
+    object.requests.last.created_at.in_time_zone('Chennai').strftime("%d-%m-%Y %I:%M %p")
+    # (Time.current - object.requests.last.created_at).minutes
+  end
+end

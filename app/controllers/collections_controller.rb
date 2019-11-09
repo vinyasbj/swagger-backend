@@ -5,7 +5,7 @@ class CollectionsController < ApplicationController
   def index
     @collections = Collection.all
 
-    render json: @collections
+    render json: @collections,each_serializer: CollectionListSerializer
   end
 
   # GET /collections/1
