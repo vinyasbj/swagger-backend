@@ -1,5 +1,5 @@
 class CollectionSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description,:created_at,:updated_at
+  attributes :id, :name, :description,:created_at,:updated_at, :archived_collection
 
   has_many  :requests
 
