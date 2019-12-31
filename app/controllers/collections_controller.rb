@@ -3,9 +3,10 @@ class CollectionsController < ApplicationController
 
   # GET /collections
   def index
-    if params[:archived_collection] == true
+    # binding.pry
+    if params[:archived_collection] == "true"
       @collections = Collection.where(archived_collection: params[:archived_collection])
-    elsif params[:archived_collection] == false
+    elsif params[:archived_collection] == "false"
       @collections = Collection.where(archived_collection: params[:archived_collection])
     else
       @collections = Collection.all
@@ -32,6 +33,7 @@ class CollectionsController < ApplicationController
 
   # PATCH/PUT /collections/1
   def update
+    binding.pry
     if @collection.update(collection_params)
       render json: @collection
     else
