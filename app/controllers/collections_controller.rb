@@ -3,7 +3,13 @@ class CollectionsController < ApplicationController
 
   # GET /collections
   def index
-    @collections = Collection.all
+    if params[:archived_collection] == true
+      @collections = Collection.where(archived_collection: params[:archived_collection])
+    elsif params[:archived_collection] == false
+      @collections = Collection.where(archived_collection: params[:archived_collection])
+    else
+      @collections = Collection.all
+    end
 
     render json: @collections,each_serializer: CollectionListSerializer
   end

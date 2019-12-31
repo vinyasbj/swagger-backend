@@ -11,7 +11,4 @@ class CollectionSerializer < ActiveModel::Serializer
     object.updated_at.in_time_zone('Chennai').strftime("%d-%m-%Y %I:%M %p")
   end
 
-  # def requests
-  #   object.requests 
-  # end
 end
