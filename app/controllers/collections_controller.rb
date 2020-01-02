@@ -33,7 +33,6 @@ class CollectionsController < ApplicationController
 
   # PATCH/PUT /collections/1
   def update
-    binding.pry
     if @collection.update(collection_params)
       render json: @collection
     else
