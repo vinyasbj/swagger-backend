@@ -22,7 +22,7 @@ module Swagger
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
     Slack.configure do |config|
-      config.token = "xoxp-18467453632-489073899622-947836387780-7820e66e96add2192d5df48bdfd4572f"
+      config.token = ENV['SLACK_API_TOKEN']
     end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
