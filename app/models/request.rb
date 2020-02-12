@@ -6,7 +6,7 @@ class Request < ApplicationRecord
 
     def cut_me_some_slack
         text = "A #{self.title} for #{self.collection.name} has been added \n https://api-docs.vinyas.im/try_request/#{self.id}"
-        client = Slack::Web::Client.new
-        client.chat_postMessage(channel: "#engineering_team", text: text ,username:"Api Documentation")
+        notifier = Slack::Notifier.new ENV['SLACK_WEBHOOK_URL']
+        notifier.ping text
     end
 end
