@@ -1,5 +1,5 @@
 class RequestSerializer < ActiveModel::Serializer
-  attributes :id, :title, :name, :body, :headers , :collection_id , :url,:request_method, :request_params,:created_at,:updated_at,:comments,:total_comments
+  attributes :id, :title, :name, :body, :headers , :collection_id , :url,:request_method, :request_params,:created_at,:updated_at,:comments,:total_comments,:collection_name
 
   def created_at
     object.created_at.in_time_zone('Chennai').strftime("%d-%m-%Y %I:%M %p")
@@ -7,6 +7,10 @@ class RequestSerializer < ActiveModel::Serializer
 
   def updated_at
     object.updated_at.in_time_zone('Chennai').strftime("%d-%m-%Y %I:%M %p")
+  end
+
+  def collection_name
+    object.collection.name
   end
   
   def request_method
