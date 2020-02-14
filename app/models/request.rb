@@ -9,4 +9,9 @@ class Request < ApplicationRecord
         notifier = Slack::Notifier.new ENV['SLACK_WEBHOOK_URL']
         notifier.ping text
     end
+
+    def self.search(search)
+        requests = self.includes(:collection).where("lower(title) LIKE ?","%#{search.downcase}%")
+        return requests
+    end
 end

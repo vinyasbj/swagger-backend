@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :collections, :defaults => { :format => 'json' }
   get "request_comments",:to => "comments#request_comments"
   get 'latest_api',:to => 'requests#get_latest_api'
+  get "/search_requests", to: "requests#search_requests"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
