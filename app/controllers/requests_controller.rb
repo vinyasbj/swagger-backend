@@ -8,6 +8,12 @@ class RequestsController < ApplicationController
     render json: @requests
   end
 
+  def get_latest_api
+    @requests = Request.last
+    
+    render json: @request
+  end
+
   # GET /requests/1
   def show
     render json: @request
