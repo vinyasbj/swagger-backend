@@ -1,5 +1,5 @@
 class CollectionListSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description,:created_at,:updated_at,:last_updated
+  attributes :id, :name, :description,:created_at,:updated_at,:last_updated, :prod_url, :staging_url
 
   def created_at
     object.created_at.in_time_zone('Chennai').strftime("%d-%m-%Y %I:%M %p")
