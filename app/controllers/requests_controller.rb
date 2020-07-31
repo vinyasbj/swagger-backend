@@ -29,6 +29,7 @@ class RequestsController < ApplicationController
     @request = Request.new(request_params)
     @request.body = params[:request][:body]
     if @request.save
+      NotifySlack.new().execute(@request)
       render json: @request, status: :created
     else
       render json: @request.errors, status: :unprocessable_entity
