@@ -1,4 +1,3 @@
-require "pry"
 class NotifySlack 
     def initiailize(request)
         @request = request
